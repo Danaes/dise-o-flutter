@@ -10,45 +10,60 @@ class BasicoPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
           _crearImagen(),
           _crearTitulo(),
           _crearButones(),
-          _crearTexto()
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          _crearTexto(),
+          SizedBox(height: 20.0)
         ],
+        ),
       ),
     );
   }
 
-  Widget _crearImagen() => Image( image: NetworkImage('https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/02/Landscapes-04-jeremy-flint.jpg?resize=768%2C512&ssl=1'));
+  Widget _crearImagen() => Container(
+    width: double.infinity,
+    child: Image( 
+      image: NetworkImage('https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2019/02/Landscapes-04-jeremy-flint.jpg?resize=768%2C512&ssl=1'),
+      fit: BoxFit.cover,
+      height: 200.0,
+      )
+    );
 
   Widget _crearTitulo() {
 
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-        child: Row(
-          children: <Widget>[
+      return SafeArea(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+          child: Row(
+            children: <Widget>[
 
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
 
-                  Text('Lago con un puento', style: estiloTitulo),
-                  SizedBox(height: 7.0,),
-                  Text('Una lago en Alemania',  style: estiloSubtitulo),
+                    Text('Lago con un puento', style: estiloTitulo),
+                    SizedBox(height: 7.0,),
+                    Text('Una lago en Alemania',  style: estiloSubtitulo),
 
-                ],
+                  ],
+                ),
               ),
-            ),
 
-            Icon(Icons.star, color: Colors.red, size: 30.0),
+              Icon(Icons.star, color: Colors.red, size: 30.0),
 
-            Text('41', style: TextStyle(fontSize: 20.0),),
+              Text('41', style: TextStyle(fontSize: 20.0),),
 
 
-          ],
+            ],
+          ),
         ),
       );
 
@@ -79,11 +94,13 @@ class BasicoPage extends StatelessWidget {
 
   Widget _crearTexto() {
 
-    return Container(
-      padding: EdgeInsets.symmetric( horizontal: 40.0, vertical: 20.0),
-      child: Text(
-        'Eiusmod ullamco enim fugiat in amet. Minim esse ut est est mollit Lorem id laborum. Excepteur laborum mollit ad sunt tempor id labore aliquip. Reprehenderit qui officia ea sint officia reprehenderit.',
-        textAlign: TextAlign.justify,
+    return SafeArea(
+      child: Container(
+        padding: EdgeInsets.symmetric( horizontal: 40.0),
+        child: Text(
+          'Eiusmod ullamco enim fugiat in amet. Minim esse ut est est mollit Lorem id laborum. Excepteur laborum mollit ad sunt tempor id labore aliquip. Reprehenderit qui officia ea sint officia reprehenderit.',
+          textAlign: TextAlign.justify,
+        ),
       ),
     );
   }
