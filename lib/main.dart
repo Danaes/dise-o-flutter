@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.white12
+      statusBarColor: Colors.transparent
     ));
 
     return MaterialApp(
